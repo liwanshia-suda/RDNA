@@ -1,0 +1,5 @@
+library(survival)
+library(survminer)
+my.surv <- Surv(dat3$OS_MONTHS,dat3$OS_STATUS=='1:DECEASED')
+kmfit1 <- survfit(my.surv~HSPA1A,data=dat3)
+ggsurvplot(kmfit1,conf.int = F,pval = T,risk.table = T,ncensor.plot=TRUE)
